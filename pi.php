@@ -33,8 +33,12 @@ if($db->connect_errno > 0){
 if(!$result = $db->query($createTable)){
     die('There was an error running the query [' . $db->error . ']');
 }
-
-$serials = $out[1];
+$serials = array();
+foreach($out[1] as $serial) {
+	if(preg_match("/^[a-zA-Z0-9]+$/", $serial) == 1) {
+		$serials[] = $serial;
+	}
+}
 $time = time();
 if(count($serials)>0) {
 
