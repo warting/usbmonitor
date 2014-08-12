@@ -5,12 +5,6 @@ ini_set('display_errors', true);
 
 date_default_timezone_set('Europe/Stockholm');
 
-$file = file_get_contents('out.txt');
-
-preg_match_all('/SerialNumber=(.*?)\s/is', $file, $out);
-//print_r($out[1]);
-
-
 include('db.php');
 
 if($db->connect_errno > 0){
