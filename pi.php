@@ -1,4 +1,4 @@
-?php
+<?php
 ini_set('display_errors', true);
 if($_POST['name']=='usb') {
         $file = file_get_contents($_FILES["filedata"]["tmp_name"]);
