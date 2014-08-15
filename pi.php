@@ -35,7 +35,7 @@ if(!$result = $db->query($createTable)){
 }
 $serials = array();
 foreach($out[1] as $serial) {
-	if(preg_match("/^[a-zA-Z0-9]+$/", $serial) == 1) {
+	if(preg_match("/^[a-zA-Z0-9_]+$/", $serial) == 1) {
 		$serials[] = $serial;
 	}
 }
