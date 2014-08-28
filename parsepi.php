@@ -33,7 +33,7 @@ if ($result = $db->query("SELECT * FROM usb order by timestampOnline DESC")) {
 		}
 		$isPlugged = $timestampOnline == $row->timeStampOnline;
         // use your $myrow array as you would with any other fetch
-        print "<tr><td>".$row->name."</td><td>".$row->serialNumber."</td><td>".date('Y-m-d H:i:s', $row->timeStampOnline)."</td><td><img src=\"".($isPlugged?"green":"red").".png\" \></td></tr>\n";
+        print "<tr><td>".$row->name."</td><td>".$row->serialNumber."</td><td>".date('Y-m-d H:i:s', $row->timeStampOnline)."</td><td><img style=\"height:25px\" src=\"".($isPlugged?"green":"red").".png\" \></td></tr>\n";
 
     }
 
