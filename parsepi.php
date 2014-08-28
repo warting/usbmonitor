@@ -21,7 +21,7 @@ if($db->connect_errno > 0){
 <?php
 
 $pluggedRow = 
-$timeStampOnline = 0;
+$timestampOnline = 0;
 /* Select queries return a resultset */
 if ($result = $db->query("SELECT * FROM usb order by timestampOnline DESC")) {
     // printf("Select returned %d rows.\n", $result->num_rows);
