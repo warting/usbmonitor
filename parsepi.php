@@ -16,17 +16,24 @@ if($db->connect_errno > 0){
 <th>Namn</th>
 <th>Serienummer</th>
 <th>Senast inkopplad</th>
+<th></th>
 </tr>
 <?php
 
+$pluggedRow = 
+$timeStampOnline = 0;
 /* Select queries return a resultset */
 if ($result = $db->query("SELECT * FROM usb order by timestampOnline DESC")) {
     // printf("Select returned %d rows.\n", $result->num_rows);
 
     /* now you can fetch the results into an array - NICE */
     while ($row = $result->fetch_object()) {
+		if($timestampOnline == 0) {
+			$timestampOnline = $row->timeStampOnline;
+		}
+		$isPlugged = $timestampOnline == $row->timeStampOnline;
         // use your $myrow array as you would with any other fetch
-        print "<tr><td>".$row->name."</td><td>".$row->serialNumber."</td><td>".date('Y-m-d H:i:s', $row->timeStampOnline)."</td></tr>\n";
+        print "<tr><td>".$row->name."</td><td>".$row->serialNumber."</td><td>".date('Y-m-d H:i:s', $row->timeStampOnline)."</td><td><img src=\"plugged_".($isPlugged?"green":"red").".png\" \></td></tr>\n";
 
     }
 
